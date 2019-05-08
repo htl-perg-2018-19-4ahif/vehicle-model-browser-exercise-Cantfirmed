@@ -43,6 +43,7 @@ export class ModelsPageComponent implements OnInit {
   }
   public async fetchCars() {
     this.currentSearch = this.host + '/api/models?';
+    this.offset = 0;
     if (this.year !== '0') {
       this.currentSearch += 'year=' + this.year;
     }
