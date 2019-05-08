@@ -1,0 +1,29 @@
+<br>
+<select [(ngModel)]='year' (change)='onYearChange()'>
+  <option value=0>Auswahl</option>
+  <option *ngFor="let year of years">{{year}}</option>
+</select>
+<select [(ngModel)]='make' (change)='onMakeChange()'>
+  <option value="noFilter">Auswahl</option>
+  <option *ngFor="let make of makes">{{make}}</option>
+</select>
+<button (click)="fetchCars()">Refresh</button>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Year</th>
+    <th>Make</th>
+    <th>Model</th>
+  </tr>
+  <tr *ngFor="let car of carList">
+    <td>{{car.id}}</td>
+    <td>{{car.year}}</td>
+    <td>{{car.make}}</td>
+    <td>{{car.model}}</td>
+  </tr>
+</table>
+<span>
+  <button [disabled]='offset == 0' (click)='previousPage()'>Previous</button>
+  <button [disabled]='lastPage' (click)='nextPage()'>Next</button>
+</span>
