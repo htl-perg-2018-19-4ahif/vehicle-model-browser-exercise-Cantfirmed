@@ -54,8 +54,6 @@ export class ModelsPageComponent implements OnInit {
     this.checkIfLastPage();
 
   }
-
-  // this.carList = await this.http.get<Car[]>(this.host + '/api/models?make=' + this.make + '&year=' + this.year).toPromise();
   public async previousPage() {
     this.offset -= 10;
     this.carList = await this.http.get<Car[]>(this.currentSearch + '&offset=' + this.offset).toPromise();
